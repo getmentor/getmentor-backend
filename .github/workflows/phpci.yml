@@ -1,5 +1,4 @@
-name: Tests & Lint & Deploy to Railway
-
+name: Tests & Lint
 on:
   push:
     branches:
