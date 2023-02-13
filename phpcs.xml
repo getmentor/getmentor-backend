@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<ruleset name="PlatformApi">
+
+    <description>PSR12 Laravel standards.</description>
+
+    <rule ref="PSR12"/>
+
+    <arg name="basepath" value="."/>
+    <arg name="colors"/>
+    <arg name="parallel" value="75"/>
+    <arg value="np"/>
+    <arg name="extensions" value="php"/>
+
+    <file>app</file>
+    <file>config</file>
+    <file>resources</file>
+    <file>routes</file>
+    <file>tests</file>
+    <file>database</file>
+    <rule ref="Generic.ControlStructures.InlineControlStructure">
+        <properties>
+            <property name="error" value="true"/>
+        </properties>
+    </rule>
+
+    <exclude-pattern>app/Console/Kernel.php</exclude-pattern>
+    <exclude-pattern>app/Http/Controllers/Controller.php</exclude-pattern>
+    <exclude-pattern>app/Http/Controllers/Auth/*</exclude-pattern>
+    <exclude-pattern>app/Http/Requests/Auth/LoginRequest.php</exclude-pattern>
+    <exclude-pattern>bootstrap/cache/*</exclude-pattern>
+    <exclude-pattern>config/*</exclude-pattern>
+    <exclude-pattern>public/index.php</exclude-pattern>
+    <exclude-pattern>storage/framework/views/*</exclude-pattern>
+    <exclude-pattern>server.php</exclude-pattern>
+    <exclude-pattern>*/migrations/*</exclude-pattern>
+    <exclude-pattern>*/seeds/*</exclude-pattern>
+    <exclude-pattern>*/*.blade.php</exclude-pattern>
+    <exclude-pattern>*/*.js</exclude-pattern>
+    <exclude-pattern>vendor/*</exclude-pattern>
+    <exclude-pattern>node_modules/*</exclude-pattern>
+</ruleset>
