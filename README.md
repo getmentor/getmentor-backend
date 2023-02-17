@@ -4,7 +4,7 @@ API on Laravel
 
 ### Tests and linter status:
 
-[![Tests & Lint](https://github.com/getmentor/getmentor-backend/actions/workflows/phpci.yml/badge.svg?branch=main)](https://github.com/getmentor/getmentor-backend/actions/workflows/phpci.yml)
+[![Tests & Lint](https://github.com/getmentor/getmentor-backend/actions/workflows/phpci.yml/badge.svg?branch=main "Badge")](https://github.com/getmentor/getmentor-backend/actions/workflows/phpci.yml)
 
 DEMO: ...
 
