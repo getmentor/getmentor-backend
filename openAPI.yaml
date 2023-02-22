@@ -1,0 +1,111 @@
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: Get Mentor
+  license:
+    name: MIT
+servers:
+  - url: https://getmentor.dev
+    description: production
+  - url: http://localhost:3000/
+    description: development
+paths:
+  /api/v1/mentors:
+    get:
+      summary: Returns a list of objects with mentors datas
+      description: How many items to return at one time (by default 48)
+      operationId: listMentors
+      tags:
+        - mentors
+      responses:
+        '200':
+          description: A JSON array of mentors datas
+          content:
+            application/json:
+              schema: 
+                type: array
+                items: 
+                  $ref: "#/components/schemas/Mentor"
+        '403':
+          description: Access to this document is denied
+    post:
+      summary: Create a mentor
+      operationId: createMentors
+      tags:
+        - mentors
+      responses:
+        '201':
+          description: Mentor Created
+        '403':
+          description: Access to this document is denied
+  /api/v1/mentors/{mentorId}:
+    get:
+      summary: Datas for a specific mentor
+      operationId: showMentorById
+      tags:
+        - mentors
+      parameters:
+        - name: mentorId
+          in: path
+          required: true
+          description: The id of the mentor to retrieve
+          schema:
+            type: object
+      responses:
+        '200':
+          description: A JSON array of mentor datas
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Mentor"
+        '403':
+          description: Access to this document is denied
+components:
+  schemas:
+    Mentor:
+      type: object
+      required:
+        - id
+        - slug
+        - name
+        - job
+        - workplace
+        - about
+        - description
+        - competencies
+        - experience
+        - price
+        - menteeCount
+        - photo_url
+      properties:
+        id:
+          type: integer
+          format: int64
+        slug:
+          type: string
+        name:
+          type: string
+        job:
+          type: string
+        workplace:
+          type: string
+        about:
+          type: string
+        description:
+          type: string
+        competencies:
+          type: string
+        experience:
+          type: string
+        price:
+          type: number
+          format: float
+        menteeCount:
+          type: integer
+          format: int32
+        photo_url:
+          type: string
+    Mentors:
+      type: array
+      items:
+        $ref: "#/components/schemas/Mentor"
