@@ -34,3 +34,17 @@ jobs:
 
       - name: Execute tests (Unit and Feature tests) via PHPUnit
         run: make test-coverage
+
+  deploy:
+    name: Wait for Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for Render Deployment
+        uses: bounceapp/render-action@0.6.0
+        with:
+          render-token: ${{ secrets.RENDER_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          service-id: srv-cfr7o3la499b40cq8opg?key=v0D5PzvFlTI
+          retries: 20
+          wait: 16000
+          sleep: 30000
