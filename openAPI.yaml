@@ -10,7 +10,7 @@ servers:
   - url: http://localhost:3000/
     description: development
 paths:
-  /mentors:
+  /api/v1/mentors:
     get:
       summary: Returns a list of objects with mentors datas
       description: How many items to return at one time (by default 48)
@@ -38,7 +38,7 @@ paths:
           description: Mentor Created
         '403':
           description: Access to this document is denied
-  /mentors/{mentorId}:
+  /api/v1/mentors/{mentorId}:
     get:
       summary: Datas for a specific mentor
       operationId: showMentorById
