@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - main
+      - add-deploy-to-render.com
   pull_request:
     branches:
       - main
