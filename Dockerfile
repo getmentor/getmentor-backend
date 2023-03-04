@@ -1,20 +1,24 @@
-FROM richarvey/nginx-php-fpm:1.7.2
+# syntax = edrevo/dockerfile-plus
+
+INCLUDE+ Dockerfile.dev
+
+ENV PORT=80
+
+COPY composer.json composer.lock ./
+COPY app/Helpers/helpers.php ./app/Helpers/helpers.php
+
+RUN composer install --prefer-dist --no-scripts --no-dev --no-autoloader
+
+COPY package.json package-lock.json ./
+
+RUN npm ci
 
 COPY . .
 
-# Image config
-ENV SKIP_COMPOSER 1
-ENV WEBROOT /var/www/html/public
-ENV PHP_ERRORS_STDERR 1
-ENV RUN_SCRIPTS 1
-ENV REAL_IP_HEADER 1
+RUN composer dump-autoload --no-dev --optimize
 
-# Laravel config
-ENV APP_ENV production
-ENV APP_DEBUG false
-ENV LOG_CHANNEL stderr
+RUN npm run prod
 
-# Allow composer to run as root
-ENV COMPOSER_ALLOW_SUPERUSER 1
+CMD ["bash", "-c", "make db-prepare start-app"]
 
-CMD ["/start.sh"]
+EXPOSE ${PORT}
