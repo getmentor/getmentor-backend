@@ -1,3 +1,5 @@
+PORT ?= 8000
+
 start:
 	php artisan serve --host 0.0.0.0
 
@@ -53,3 +55,9 @@ ide-helper:
 	php artisan ide-helper:gen
 	php artisan ide-helper:meta
 	php artisan ide-helper:mod -n
+
+db-prepare:
+	php artisan migrate:fresh --force --seed
+
+start-app:
+	php artisan serve --host 0.0.0.0 --port ${PORT}
