@@ -10,7 +10,8 @@
         "laravel/framework": "^10.0.3",
         "laravel/sanctum": "^3.2.1",
         "laravel/tinker": "^2.8.0",
-        "sentry/sentry-laravel": "^3.2.0"
+        "sentry/sentry-laravel": "^3.2.0",
+        "ext-pdo": "*"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.13.0",
