@@ -3,7 +3,8 @@
 API on Laravel 
 
 ### Tests and linter status:
-
+[![Maintainability](https://api.codeclimate.com/v1/badges/7b3b5c895ee0cf71aaf7/maintainability)](https://codeclimate.com/github/AslanAV/getmentor-backend/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/7b3b5c895ee0cf71aaf7/test_coverage)](https://codeclimate.com/github/AslanAV/getmentor-backend/test_coverage)
 [![Tests & Lint](https://github.com/getmentor/getmentor-backend/actions/workflows/phpci.yml/badge.svg?branch=main "Badge")](https://github.com/getmentor/getmentor-backend/actions/workflows/phpci.yml)
 
 DEMO: ...
