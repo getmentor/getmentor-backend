@@ -47,9 +47,10 @@ jobs:
           debug: true
 
   deploy:
+    needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy Stage
+      - name: Deploy to Render.com with deploy hook
         uses: fjogeleit/http-request-action@v1
         with:
           url: ${{ secrets.DEPLOY_HOOK }}
