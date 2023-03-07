@@ -45,3 +45,16 @@ jobs:
           coverageCommand: make test-coverage
           coverageLocations: build/logs/clover.xml:clover
           debug: true
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Render GitHub Action
+        uses: bounceapp/render-action@0.6.0
+        with:
+          service-id: ${{ secrets.SERVICE_ID }}
+          render-token: ${{ secrets.RENDER_TOKEN }}
