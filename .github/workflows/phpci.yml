@@ -3,9 +3,11 @@ on:
   push:
     branches:
       - main
+      - add-CI-CD
   pull_request:
     branches:
       - main
+      - add-CI-CD
 
 jobs:
   build:
