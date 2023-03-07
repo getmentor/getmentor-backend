@@ -49,7 +49,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Render GitHub Action
-        uses: bounceapp/render-action@0.6.0
+      - name: Deploy Stage
+        uses: fjogeleit/http-request-action@v1
         with:
-          service-id: srv-cg1qcc7dvk4ronul53hg
+          url: ${{ secrets.DEPLOY_HOOK }}
+          method: 'GET'
