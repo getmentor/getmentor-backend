@@ -56,4 +56,4 @@ jobs:
       - name: Render GitHub Action
         uses: bounceapp/render-action@0.6.0
         with:
-          service-id: ${{ secrets.SERVICE_ID }}
+          service-id: srv-cg1qcc7dvk4ronul53hg
