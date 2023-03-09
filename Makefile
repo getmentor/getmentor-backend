@@ -61,3 +61,12 @@ db-prepare:
 
 start-app:
 	php artisan serve --host 0.0.0.0 --port ${PORT}
+
+lint-frontend:
+	make -C frontend lint
+
+start-frontend:
+	make -C frontend start
+
+build-frontend:
+	make -C frontend build

@@ -29,3 +29,9 @@ make setup
 ```shell
 make start
 ```
+## Build frontend
+```
+make build-frontend
+```
+
+### [Try the application](https://getmentor-backend.vercel.app/)
