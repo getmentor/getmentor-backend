@@ -1,8 +1,7 @@
-//const STORAGE_DOMAIN = process.env.NEXT_PUBLIC_AZURE_STORAGE_DOMAIN
+const STORAGE_DOMAIN = process.env.NEXT_PUBLIC_AZURE_STORAGE_DOMAIN
 
 export function imageLoader({ src, width, quality }) {
-  //const url = 'https://' + STORAGE_DOMAIN + '/mentor-images/'
-  const url = './';
+  const url = 'https://' + STORAGE_DOMAIN + '/mentor-images/'
   let size = 'full'
   if (width && width <= 900) {
     size = 'large'

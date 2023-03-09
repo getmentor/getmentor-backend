@@ -1,26 +1,33 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import pluralize from '../lib/pluralize'
-import { imageLoader } from '../lib/azure-image-loader'
+import pluralize from '../lib/pluralize';
+// import { imageLoader } from '../lib/azure-image-loader'
+import photo from '../assets-tmp/images/photo.png';
 
 export default function MentorsList(props) {
-  const { mentors, hasMore, onClickMore } = props
+  const { mentors, hasMore, onClickMore } = props;
 
   return (
     <>
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-4">
         {mentors.map((mentor) => (
-          <Link key={mentor.id} href={'/mentor/' + mentor.slug}>
+          <Link key={mentor.id} href={'/mentor/' + mentor.slug} legacyBehavior>
             <a target="_blank">
               <div className="aspect-w-5 aspect-h-4 bg-center bg-cover bg-no-repeat">
-                <Image
+              <Image
+                  src={photo}
+                  alt={mentor.name}
+                  placeholder="blur"
+
+              />
+                {/*<Image
                   src={imageLoader({ src: mentor.slug, quality: 'large' })}
                   alt={mentor.name}
                   placeholder="blur"
                   blurDataURL={imageLoader({ src: mentor.slug, quality: 'small' })}
                   layout="fill"
                   objectFit="cover"
-                />
+                />*/}
               </div>
 
               <div className="mt-3 mb-5">

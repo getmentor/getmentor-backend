@@ -1,3 +1,13 @@
+/**
+ * @type {import('next').NextConfig}
+ */
+const nextConfig = {
+  /* настройки */
+}
+
+module.exports = nextConfig
+
+/*
 const { withSentryConfig } = require('@sentry/nextjs')
 
 const moduleExports = {
@@ -8,8 +18,7 @@ const moduleExports = {
   },
 
   images: {
-    domains: [],
- //   domains: ['dl.airtable.com', process.env.AZURE_STORAGE_DOMAIN],
+    domains: ['dl.airtable.com', process.env.AZURE_STORAGE_DOMAIN],
   },
 
   experimental: {
@@ -21,7 +30,6 @@ const moduleExports = {
       // this header fixed bad behaviors of next <Image /> component
       // now local images from /images directory will be cached for 1 day
       // otherwise cache image will regenerate every 60 seconds
-      /*
       {
         source: '/images/(.*)',
         headers: [
@@ -30,13 +38,11 @@ const moduleExports = {
             value: 'public, max-age=86400, must-revalidate',
           },
         ],
-      }, */
+      },
     ]
   },
 
   async redirects() {
-    return [];
-    /*
     return [
       {
         source: '/:slug([a-z-]+\\d+)',
@@ -67,7 +73,7 @@ const moduleExports = {
         destination: '/api/internal/mentors?force_reset_cache=1',
         permanent: true,
       },
-    ] */
+    ]
   },
 
   onDemandEntries: {
@@ -93,3 +99,4 @@ const SentryWebpackPluginOptions = {
 // Make sure adding Sentry options is the last code to run before exporting, to
 // ensure that your source maps include changes from all other Webpack plugins
 module.exports = withSentryConfig(moduleExports, SentryWebpackPluginOptions)
+*/

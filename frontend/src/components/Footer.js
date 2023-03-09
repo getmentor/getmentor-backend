@@ -23,12 +23,12 @@ export default function Footer() {
           </a>
         </p>
         <p>
-          <Link href="/privacy">
+          <Link href="/privacy" legacyBehavior>
             <a className="link">Политика в отношении персональных данных</a>
           </Link>
         </p>
         <p>
-          <Link href="/disclaimer">
+          <Link href="/disclaimer" legacyBehavior>
             <a className="link">Отказ от ответственности</a>
           </Link>
         </p>

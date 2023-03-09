@@ -20,7 +20,7 @@ import VisibilitySensor from 'react-visibility-sensor'
 
 export async function getServerSideProps(context) {
 //  const pageMentors = await getAllMentors({ onlyVisible: true })
-  const pageMentors = [{ name: 'John Doe' }, { name: 'Anna Oops' }];
+  const pageMentors = [{ id: 1, name: 'John Doe' }, { id: 2, name: 'Anna Oops' }];
   return {
     props: {
       pageMentors,
@@ -135,7 +135,7 @@ export default function Home({ pageMentors }) {
         </div>
 
         <div className="text-center mt-4">
-          <Link href="/donate">
+          <Link href="/donate" legacyBehavior>
             <a className="link">Почему это важно</a>
           </Link>
         </div>
@@ -176,7 +176,7 @@ export default function Home({ pageMentors }) {
             <Image src="/images/avito_tech.png" width={300} height={100} />
           </a>
 
-          <Link href="/ontico">
+          <Link href="/ontico" legacyBehavior>
             <a className="h-20 px-8 flex justify-center items-center">
               <Image src="/images/ontico.png" width={300} height={(220 / 1024) * 300} />
             </a>
@@ -231,13 +231,13 @@ export default function Home({ pageMentors }) {
           <p>
             Поэтому у тебя есть возможность задонатить нам сколько ты хочешь. Сделать это довольно
             легко, вот{' '}
-            <Link href="/donate">
+            <Link href="/donate" legacyBehavior>
               <a className="link">тут написано как</a>
             </Link>
             .
           </p>
 
-          <Link href="/donate">
+          <Link href="/donate" legacyBehavior>
             <a className="button bg-primary-900">Поблагодарить</a>
           </Link>
         </div>
@@ -254,7 +254,7 @@ export default function Home({ pageMentors }) {
 
           <p>Заполни анкету и мы обязательно добавим тебя на сайт.</p>
 
-          <Link href="/bementor">
+          <Link href="/bementor" legacyBehavior>
             <a className="button bg-primary-900">Оставить заявку</a>
           </Link>
         </div>
