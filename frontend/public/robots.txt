@@ -1,0 +1,11 @@
+User-agent: *
+Disallow: /[slug]
+Disallow: /mentor/[slug]
+Disallow: /profile
+Disallow: /api/*
+Disallow: /mentor/*/contact
+
+User-agent: *
+Allow: /
+
+Sitemap: https://getmentor.dev/sitemap.xml
