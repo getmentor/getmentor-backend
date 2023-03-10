@@ -1,11 +1,13 @@
-name: Tests & Lint
+name: Tests & Lint & Deploy
 on:
   push:
     branches:
       - main
+      - add-CI-CD
   pull_request:
     branches:
       - main
+      - add-CI-CD
 
 jobs:
   build:
@@ -34,3 +36,22 @@ jobs:
 
       - name: Execute tests (Unit and Feature tests) via PHPUnit
         run: make test-coverage
+
+      - name: Run test & publish code coverage / CODECLIMATE
+        uses: paambaati/codeclimate-action@v3.2.0
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+        with:
+          coverageCommand: make test-coverage
+          coverageLocations: build/logs/clover.xml:clover
+          debug: true
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to Render.com with deploy hook
+        uses: fjogeleit/http-request-action@v1
+        with:
+          url: ${{ secrets.DEPLOY_HOOK }}
+          method: 'GET'
