@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\MentorController;
+use App\Http\Controllers\Api\MentorController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,4 +19,4 @@ Route::get('/test', function (Request $request) {
     return response()->json("test api");
 });
 
-Route::resource('/mentor', MentorController::class);
+Route::resource('/mentors', MentorController::class);

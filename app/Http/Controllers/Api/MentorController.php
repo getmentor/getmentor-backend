@@ -1,14 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreMentorRequest;
 use App\Http\Requests\UpdateMentorRequest;
 use App\Models\Mentor;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Response;
-use PhpParser\Node\Expr\New_;
 
 class MentorController extends Controller
 {
