@@ -19,8 +19,13 @@ class MentorController extends Controller
     {
         $mentor = new Mentor();
         $validated = $request->validated();
-        $mentor->fill($validated);
+        $data = [...$validated, 'mentee_count' => 0];
+        $mentor->fill($data);
         $mentor->save();
+
+        if (array_key_exists('specializations', $validated)) {
+            $mentor->specializations()->attach($validated['specializations']);
+        }
 
         return response()->json($mentor, 201);
     }
@@ -31,10 +36,15 @@ class MentorController extends Controller
     }
     public function update(UpdateMentorRequest $request, $id): JsonResponse
     {
-        $validated = $request->validated();
         $mentor = Mentor::findOrFail($id);
+        $validated = $request->validated();
         $mentor->fill($validated);
         $mentor->save();
+
+        if (array_key_exists('specializations', $validated)) {
+            $mentor->specializations()->sync($validated['specializations']);
+        }
+
         return response()->json($mentor);
     }
     public function destroy($id): JsonResponse
