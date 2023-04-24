@@ -23,6 +23,8 @@ class Mentor extends Model
         'about',
         'description',
         'competencies',
+        'price',
+        'experience',
         'menteeCount',
         'link_to_calendar',
         'privacy_policy_agreement',
