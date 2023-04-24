@@ -10,10 +10,11 @@ class MentorRestAPITest extends TestCase
 {
     use RefreshDatabase;
 
-    public function testMentorStore(): void
+    private array $data;
+    protected function setUp(): void
     {
-        $route = route('mentors.store');
-        $body = [
+        parent::setUp();
+        $this->data = [
             'slug' => 'https://getmentor.dev/slug',
             'name' => 'Firstname Lastname',
             'email' => 'my@mail.ru',
@@ -24,67 +25,37 @@ class MentorRestAPITest extends TestCase
             'about' => 'My about',
             'description' => 'My description',
             'competencies' => 'My competencies',
+            'price' => '1000',
+            'experience' => '2-5',
             'link_to_calendar' => 'https://getmentor.dev/my-link-calendar',
             'privacy_policy_agreement' => true,
         ];
+    }
 
-        $response = $this->json('POST', $route, $body);
+    public function testMentorStore(): void
+    {
+        $route = route('mentors.store');
+
+        $response = $this->json('POST', $route, $this->data);
 
         $response->assertStatus(201);
     }
     public function testMentorUpdate(): void
     {
-        $mentor = Mentor::factory()->create([
-            'slug' => 'https://getmentor.dev/slug',
-            'name' => 'Firstname Lastname',
-            'email' => 'my@mail.ru',
-            'telegram_username' => '@my-username',
-            'photo_url' => 'https://getmentor.dev/my-photo',
-            'job_title' => 'My job',
-            'workplace' => 'My workplace',
-            'about' => 'My about',
-            'description' => 'My description',
-            'competencies' => 'My competencies',
-            'link_to_calendar' => 'https://getmentor.dev/my-link-calendar',
-            'privacy_policy_agreement' => true,
-        ]);
+        $mentor = Mentor::factory()->create();
 
-        $route = route('mentors.update', [
-            'id' => $mentor->id,
-        ]);
+        $route = route('mentors.update', $mentor->id);
 
-        $body = [
-            'slug' => 'https://getmentor.dev/my-new-slug',
-            'name' => 'My new Firstname Lastname',
-            'email' => 'my-new@mail.ru',
-            'telegram_username' => '@my-new-username',
-        ];
-
-        $response = $this->json('PUT', $route, $body);
+        $response = $this->json('PUT', $route, $this->data);
 
         $response->assertStatus(200);
     }
 
     public function testMentorDestroy(): void
     {
-        $mentor = Mentor::factory()->create([
-            'slug' => 'https://getmentor.dev/slug',
-            'name' => 'Firstname Lastname',
-            'email' => 'my@mail.ru',
-            'telegram_username' => '@my-username',
-            'photo_url' => 'https://getmentor.dev/my-photo',
-            'job_title' => 'My job',
-            'workplace' => 'My workplace',
-            'about' => 'My about',
-            'description' => 'My description',
-            'competencies' => 'My competencies',
-            'link_to_calendar' => 'https://getmentor.dev/my-link-calendar',
-            'privacy_policy_agreement' => true,
-        ]);
+        $mentor = Mentor::factory()->create();
 
-        $route = route('mentors.destroy', [
-            'mentor' => $mentor->id,
-        ]);
+        $route = route('mentors.destroy', $mentor->id);
 
         $response = $this->json('DELETE', $route);
 
@@ -92,24 +63,9 @@ class MentorRestAPITest extends TestCase
     }
     public function testGetMentors(): void
     {
-        $mentor = Mentor::factory()->create([
-            'slug' => 'https://getmentor.dev/slug',
-            'name' => 'Firstname Lastname',
-            'email' => 'my@mail.ru',
-            'telegram_username' => '@my-username',
-            'photo_url' => 'https://getmentor.dev/my-photo',
-            'job_title' => 'My job',
-            'workplace' => 'My workplace',
-            'about' => 'My about',
-            'description' => 'My description',
-            'competencies' => 'My competencies',
-            'link_to_calendar' => 'https://getmentor.dev/my-link-calendar',
-            'privacy_policy_agreement' => true,
-        ]);
+        Mentor::factory()->create();
 
-        $route = route('mentors.index', [
-            'id' => $mentor->id,
-        ]);
+        $route = route('mentors.index');
 
         $response = $this->json('GET', $route);
 
@@ -117,24 +73,9 @@ class MentorRestAPITest extends TestCase
     }
     public function testShowMentor(): void
     {
-        $mentor = Mentor::factory()->create([
-            'slug' => 'https://getmentor.dev/slug',
-            'name' => 'Firstname Lastname',
-            'email' => 'my@mail.ru',
-            'telegram_username' => '@my-username',
-            'photo_url' => 'https://getmentor.dev/my-photo',
-            'job_title' => 'My job',
-            'workplace' => 'My workplace',
-            'about' => 'My about',
-            'description' => 'My description',
-            'competencies' => 'My competencies',
-            'link_to_calendar' => 'https://getmentor.dev/my-link-calendar',
-            'privacy_policy_agreement' => true,
-        ]);
+        $mentor = Mentor::factory()->create();
 
-        $route = route('mentors.show', [
-            'id' => $mentor->id,
-        ]);
+        $route = route('mentors.show', $mentor->id);
 
         $response = $this->json('GET', $route);
 
