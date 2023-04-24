@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('competencies');
             $table->string('price');
             $table->string('experience');
-            $table->integer('menteeCount');
+            $table->integer('mentee_count');
             $table->string('link_to_calendar');
             $table->boolean('privacy_policy_agreement');
             $table->timestamps();
