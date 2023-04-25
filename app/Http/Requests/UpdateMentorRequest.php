@@ -8,7 +8,7 @@ class UpdateMentorRequest extends FormRequest
 {
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
     public function rules(): array
     {
@@ -23,7 +23,8 @@ class UpdateMentorRequest extends FormRequest
             'about' => 'string|required',
             'description' => 'string|required',
             'competencies' => 'string|required|max:255',
-            'menteeCount' => 'integer|required',
+            'price' => 'string|required|max:255',
+            'experience' => 'string|required|max:255',
             'link_to_calendar' => 'string|url|required|max:255',
             'privacy_policy_agreement' => 'boolean|required',
         ];

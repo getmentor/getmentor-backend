@@ -4,9 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Mentor extends Model
 {
@@ -26,7 +24,7 @@ class Mentor extends Model
         'competencies',
         'price',
         'experience',
-        'menteeCount',
+        'mentee_count',
         'link_to_calendar',
         'privacy_policy_agreement',
     ];
@@ -36,13 +34,8 @@ class Mentor extends Model
         'updated_at',
     ];
 
-    public function specialization(): BelongsTo
+    public function specializations(): BelongsToMany
     {
-        return $this->belongsTo(Specialization::class, 'specialization_id');
-    }
-
-    public function specializations(): HasMany
-    {
-        return $this->hasMany(Specialization::class, 'specialization_id');
+        return $this->BelongsToMany(Specialization::class, 'specialization_id');
     }
 }
