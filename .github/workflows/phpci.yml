@@ -3,11 +3,9 @@ on:
   push:
     branches:
       - main
-      - add-CI-CD
   pull_request:
     branches:
       - main
-      - add-CI-CD
 
 jobs:
   build:
@@ -37,14 +35,11 @@ jobs:
       - name: Execute tests (Unit and Feature tests) via PHPUnit
         run: make test-coverage
 
-      - name: Run test & publish code coverage / CODECLIMATE
-        uses: paambaati/codeclimate-action@v3.2.0
-        env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
         with:
-          coverageCommand: make test-coverage
-          coverageLocations: build/logs/clover.xml:clover
-          debug: true
+          file: build/logs/clover.xml
+        # fail_ci_if_error: true
 
   deploy:
     needs: build
