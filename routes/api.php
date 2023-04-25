@@ -19,4 +19,5 @@ Route::get('/test', function (Request $request) {
     return response()->json("test api");
 });
 
-Route::apiResource('/mentors', MentorController::class);
+Route::get('/mentors', [MentorController::class, 'index'])->name('mentors.index');
+Route::get('/mentors/{id}', [MentorController::class, 'show'])->name('mentors.show');
