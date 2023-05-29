@@ -18,14 +18,14 @@ return new class extends Migration
             $table->string('email');
             $table->string('telegram_username');
             $table->string('photo_url');
-            $table->string('job_title');
+            $table->string('job');
             $table->string('workplace');
             $table->text('about');
             $table->text('description');
             $table->string('competencies');
             $table->string('price');
             $table->string('experience');
-            $table->integer('mentee_count');
+            $table->integer('menteeCount');
             $table->string('link_to_calendar');
             $table->boolean('privacy_policy_agreement');
             $table->timestamps();
