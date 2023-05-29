@@ -7,10 +7,10 @@ info:
 servers:
   - url: https://getmentor.dev
     description: production
-  - url: http://localhost:3000/
+  - url: http://localhost:8000/
     description: development
 paths:
-  /api/v1/mentors:
+  /api/mentors:
     get:
       summary: Returns a list of objects with mentors datas
       description: How many items to return at one time (by default 48)
@@ -22,30 +22,20 @@ paths:
           description: A JSON array of mentors datas
           content:
             application/json:
-              schema: 
+              schema:
                 type: array
-                items: 
+                items:
                   $ref: "#/components/schemas/Mentor"
         '403':
           description: Access to this document is denied
-    post:
-      summary: Create a mentor
-      operationId: createMentors
-      tags:
-        - mentors
-      responses:
-        '201':
-          description: Mentor Created
-        '403':
-          description: Access to this document is denied
-  /api/v1/mentors/{mentorId}:
+  /api/mentors/{id}:
     get:
       summary: Datas for a specific mentor
       operationId: showMentorById
       tags:
         - mentors
       parameters:
-        - name: mentorId
+        - name: id
           in: path
           required: true
           description: The id of the mentor to retrieve
@@ -65,18 +55,22 @@ components:
     Mentor:
       type: object
       required:
-        - id
-        - slug
-        - name
-        - job
-        - workplace
-        - about
-        - description
-        - competencies
-        - experience
-        - price
-        - menteeCount
-        - photo_url
+          - id
+          - slug
+          - name
+          - email
+          - telegram_username
+          - photo_url
+          - job_title
+          - workplace
+          - about
+          - description
+          - competencies
+          - price
+          - experience
+          - mentee_count
+          - link_to_calendar
+          - privacy_policy_agreement
       properties:
         id:
           type: integer
@@ -85,7 +79,13 @@ components:
           type: string
         name:
           type: string
-        job:
+        email:
+          type: string
+        telegram_username:
+          type: string
+        photo_url:
+          type: string
+        job_title:
           type: string
         workplace:
           type: string
@@ -95,17 +95,80 @@ components:
           type: string
         competencies:
           type: string
+        price:
+          type: string
         experience:
           type: string
-        price:
-          type: number
-          format: float
-        menteeCount:
+        mentee_count:
           type: integer
           format: int32
-        photo_url:
+        link_to_calendar:
           type: string
+        privacy_policy_agreement:
+          type: boolean
     Mentors:
-      type: array
-      items:
-        $ref: "#/components/schemas/Mentor"
+      type: object
+      required:
+        - current_page
+        - data
+        - first_page_url
+        - from
+        - last_page
+        - last_page_url
+        - links
+        - next_page_url
+        - path
+        - per_page
+        - prev_page_url
+        - to
+        - total
+      properties:
+        current_page:
+          type: integer
+          format: int32
+        data:
+          type: array
+          items:
+            $ref: "#/components/schemas/Mentor"
+        first_page_url:
+          type: string
+        form:
+          type: integer
+          format: int32
+        last_page:
+          type: integer
+          format: int32
+        last_page_url:
+          type: string
+        links:
+          type: array
+          items:
+            $ref: "#/components/schemas/Link"
+        next_page_url:
+          type: string
+        path:
+          type: string
+        per_page:
+          type: integer
+          format: int32
+        prev_page_url:
+          type: string
+        to:
+          type: integer
+          format: int32
+        total:
+          type: integer
+          format: int32
+    Link:
+      type: object
+      required:
+        - url
+        - label
+        - active
+      properties:
+        url:
+          type: string
+        label:
+          type: string
+        active:
+          type: boolean
