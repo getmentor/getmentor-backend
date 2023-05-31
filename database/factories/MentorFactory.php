@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Arr;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,12 +17,21 @@ class MentorFactory extends Factory
      */
     public function definition(): array
     {
+        $photoUrl = [
+            'http://placekitten.com',
+            'https://placebeard.it',
+            'https://dummyimage.com',
+            'https://loremflickr.com',
+            'https://baconmockup.com',
+            'https://placebear.com',
+        ];
+
         return [
             'slug' => $this->faker->slug(2, true),
             'name' => $this->faker->name(),
             'email' => $this->faker->email(),
-            'telegram_username' => $this->faker->firstName(),
-            'photo_url' => $this->faker->url(),
+            'telegram_username' => "@" . $this->faker->firstName(),
+            'photo_url' => Arr::random($photoUrl),
             'job' => $this->faker->jobTitle(),
             'workplace' => $this->faker->company(),
             'about' => $this->faker->text(200),
@@ -29,7 +39,7 @@ class MentorFactory extends Factory
             'competencies' => $this->faker->text(50),
             'price' => $this->faker->numberBetween(1, 4),
             'experience' => $this->faker->numberBetween(1, 10),
-            'menteeCount' => $this->faker->randomNumber(),
+            'menteeCount' => $this->faker->numberBetween(1, 100),
             'link_to_calendar' => $this->faker->url(),
             'privacy_policy_agreement' => $this->faker->boolean(),
         ];
