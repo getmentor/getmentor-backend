@@ -14,10 +14,10 @@ class Specialization extends Model
     protected $fillable = [
         'id',
         'name',
+        'created_at',
     ];
 
     protected $hidden = [
-        'created_at',
         'updated_at',
     ];
 
