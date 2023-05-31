@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Arr;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -24,14 +25,13 @@ class MentorFactory extends Factory
             'https://baconmockup.com',
             'https://placebear.com',
         ];
-        $maxIndex = count($photoUrl) - 1;
 
         return [
             'slug' => $this->faker->slug(2, true),
             'name' => $this->faker->name(),
             'email' => $this->faker->email(),
             'telegram_username' => "@" . $this->faker->firstName(),
-            'photo_url' => $photoUrl[random_int(0, $maxIndex)],
+            'photo_url' => Arr::random($photoUrl),
             'job' => $this->faker->jobTitle(),
             'workplace' => $this->faker->company(),
             'about' => $this->faker->text(200),
