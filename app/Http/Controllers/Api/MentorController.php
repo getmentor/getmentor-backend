@@ -13,7 +13,7 @@ class MentorController extends Controller
     public function index()
     {
         $mentors = Mentor::paginate(10);
-        return response()->json();
+        return response()->json($mentors);
     }
     public function show($id): JsonResponse
     {
