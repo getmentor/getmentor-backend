@@ -15,11 +15,11 @@ class Experience extends Model
         3 => '10+',
     ];
 
-    public function getExperienceID($experience): int
+    public static function getExperienceID($experience): int
     {
         return array_search($experience, self::EXPERIENCES, true);
     }
-    public function getExperienceAttribute($id): string
+    public static function getExperienceAttribute($id): string
     {
         return self::EXPERIENCES[$id];
     }
