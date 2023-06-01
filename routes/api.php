@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\MentorController;
+use App\Http\Controllers\Api\SpecializationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,3 +22,6 @@ Route::get('/test', function (Request $request) {
 
 Route::get('/mentors', [MentorController::class, 'index'])->name('mentors.index');
 Route::get('/mentors/{id}', [MentorController::class, 'show'])->name('mentors.show');
+
+
+Route::get('/specializations', [SpecializationController::class, 'index'])->name('specializations.index');
