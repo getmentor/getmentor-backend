@@ -36,6 +36,6 @@ class Mentor extends Model
 
     public function specializations(): BelongsToMany
     {
-        return $this->BelongsToMany(Specialization::class, 'specialization_id');
+        return $this->BelongsToMany(Specialization::class);
     }
 }

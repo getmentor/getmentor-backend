@@ -15,7 +15,7 @@ class MentorSeeder extends Seeder
     {
         Mentor::factory()
             ->count(20)
-//            ->hasSpecializations(3)
+            ->hasSpecializations(3)
             ->create();
     }
 }

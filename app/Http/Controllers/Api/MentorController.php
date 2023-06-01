@@ -10,7 +10,7 @@ use Illuminate\Http\JsonResponse;
 
 class MentorController extends Controller
 {
-    public function index(): JsonResponse
+    public function index()
     {
         $mentors = Mentor::paginate(10);
         return response()->json($mentors);
