@@ -13,7 +13,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class MentorController extends Controller
 {
-    public function index()
+    public function index(): JsonResource
     {
         $mentors = Mentor::paginate(10);
         return new MentorCollection($mentors);

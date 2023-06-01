@@ -15,7 +15,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class SpecializationController extends Controller
 {
-    public function index()
+    public function index(): JsonResource
     {
         $specializations = Specialization::all(['id', 'name']);
         return new SpecializationResource($specializations);
