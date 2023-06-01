@@ -17,7 +17,6 @@ class MentorCollection extends ResourceCollection
     {
         return [
             'mentors' => $this->collection,
-            'specializations' => Specialization::get(['id', 'name']),
         ];
     }
 }
