@@ -23,11 +23,11 @@ class Price extends Model
         10 => 'По договоренности',
     ];
 
-    public function getPriceID($price): int
+    public static function getPriceID($price): int
     {
         return array_search($price, self::PRICES, true);
     }
-    public function getPriceValue($id): string
+    public static function getPriceValue($id): string
     {
         return self::PRICES[$id];
     }
