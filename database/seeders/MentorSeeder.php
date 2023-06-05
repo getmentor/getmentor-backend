@@ -17,7 +17,6 @@ class MentorSeeder extends Seeder
     {
         Mentor::factory()
             ->count(20)
-            ->recycle(Specialization::all())
             ->create();
     }
 }
