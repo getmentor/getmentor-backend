@@ -36,7 +36,6 @@ class MentorResource extends JsonResource
             'experience' => Experience::getExperienceAttribute($this->experience),
             'menteeCount' => $this->menteeCount,
             'link_to_calendar' => $this->link_to_calendar,
-            'privacy_policy_agreement' => $this->privacy_policy_agreement,
             'specializations' => $prepareSpecializations,
         ];
     }

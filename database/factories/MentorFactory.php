@@ -37,11 +37,10 @@ class MentorFactory extends Factory
             'about' => $this->faker->text(200),
             'description' => $this->faker->text(200),
             'competencies' => $this->faker->text(50),
-            'price' => $this->faker->numberBetween(1, 10),
+            'price' => $this->faker->numberBetween(1, 6),
             'experience' => $this->faker->numberBetween(1, 3),
             'menteeCount' => $this->faker->numberBetween(1, 100),
             'link_to_calendar' => $this->faker->url(),
-            'privacy_policy_agreement' => $this->faker->boolean(),
         ];
     }
 }

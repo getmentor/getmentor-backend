@@ -3,7 +3,9 @@
 namespace Database\Seeders;
 
 use App\Models\Mentor;
+use App\Models\Specialization;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Eloquent\Factories\Sequence;
 use Illuminate\Database\Seeder;
 
 class MentorSeeder extends Seeder
@@ -15,7 +17,7 @@ class MentorSeeder extends Seeder
     {
         Mentor::factory()
             ->count(20)
-            ->hasSpecializations(3)
+            ->recycle(Specialization::all())
             ->create();
     }
 }

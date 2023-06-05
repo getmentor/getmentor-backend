@@ -26,7 +26,6 @@ class Mentor extends Model
         'experience',
         'menteeCount',
         'link_to_calendar',
-        'privacy_policy_agreement',
     ];
 
     protected $hidden = [
