@@ -23,4 +23,9 @@ class Experience extends Model
     {
         return self::EXPERIENCES[$id];
     }
+
+    public static function getAll()
+    {
+        return self::EXPERIENCES;
+    }
 }

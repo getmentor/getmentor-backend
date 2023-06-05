@@ -27,7 +27,6 @@ return new class extends Migration
             $table->string('experience');
             $table->integer('menteeCount');
             $table->string('link_to_calendar');
-            $table->boolean('privacy_policy_agreement');
             $table->timestamps();
         });
     }

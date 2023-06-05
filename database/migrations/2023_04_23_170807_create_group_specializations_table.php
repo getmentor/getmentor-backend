@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('group_specialization_specializations', function (Blueprint $table) {
+        Schema::create('group_specializations', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('specialization_id')->constrained('specializations');
-            $table->foreignId('group_specialization_id')->constrained('group_specialization');
+            $table->string('name')->nullable();
             $table->timestamps();
         });
     }
@@ -24,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('group_specialization_specializations');
+        Schema::dropIfExists('group_specializations');
     }
 };

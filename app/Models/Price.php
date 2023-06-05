@@ -11,16 +11,12 @@ class Price extends Model
 
     public const PRICES = [
         0 => 'Бесплатно',
-        1 => '1000',
-        2 => '2000',
-        3 => '3000',
-        4 => '4000',
-        5 => '5000',
-        6 => '6000',
-        7 => '7000',
-        8 => '8000',
-        9 => '9000',
-        10 => 'По договоренности',
+        1 => '1 000',
+        2 => '3 000',
+        3 => '5 000',
+        4 => '7 000',
+        5 => '10 000',
+        6 => 'По договоренности',
     ];
 
     public static function getPriceID($price): int
@@ -30,5 +26,10 @@ class Price extends Model
     public static function getPriceValue($id): string
     {
         return self::PRICES[$id];
+    }
+
+    public static function getAll()
+    {
+        return self::PRICES;
     }
 }

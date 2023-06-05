@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('specializations', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->boolean('sponsor');
+            $table->foreignId('group_specializations_id')->constrained('group_specializations');
             $table->timestamps();
         });
     }
