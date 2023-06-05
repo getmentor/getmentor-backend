@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class GroupSpecialization extends Model
+class GroupSpecializations extends Model
 {
     use HasFactory;
 
@@ -22,6 +22,6 @@ class GroupSpecialization extends Model
 
     public function specializations(): HasMany
     {
-        return $this->hasMany(Specialization::class, 'specialization_id');
+        return $this->hasMany(Specialization::class);
     }
 }
