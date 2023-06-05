@@ -3,21 +3,22 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreMentorRequest;
-use App\Http\Requests\UpdateMentorRequest;
-use App\Http\Resources\MentorCollection;
-use App\Http\Resources\MentorResource;
+use App\Http\Resources\SpecializationCollection;
 use App\Http\Resources\SpecializationResource;
-use App\Models\Mentor;
 use App\Models\Specialization;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class SpecializationController extends Controller
 {
-    public function index(): JsonResource
+    public function index(): SpecializationCollection
     {
-        $specializations = Specialization::all(['id', 'name']);
-        return new SpecializationResource($specializations);
+        $specializations = Specialization::all();
+        return new SpecializationCollection($specializations);
+    }
+
+    public function show($id): SpecializationResource
+    {
+        $specialization = Specialization::findOrFail($id);
+        return new SpecializationResource($specialization);
     }
 }
