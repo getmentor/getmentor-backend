@@ -14,6 +14,8 @@ class Specialization extends Model
     protected $fillable = [
         'id',
         'name',
+        'sponsor',
+        'group_specializations_id',
         'created_at',
     ];
 
@@ -25,8 +27,13 @@ class Specialization extends Model
     {
         return $this->hasMany(Mentor::class, 'mentor_id');
     }
-    public function groupSpecialization(): BelongsTo
+    public function groupSpecializations(): BelongsTo
     {
-        return $this->belongsTo(GroupSpecialization::class, 'group_specialization_id');
+        return $this->belongsTo(GroupSpecializations::class, 'group_specializations_id');
+    }
+
+    public function getGroupName()
+    {
+        return GroupSpecializations::findOrFail($this->group_specializations_id)->name;
     }
 }
