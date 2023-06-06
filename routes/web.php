@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Gate::define('viewApiDocs', function (User $user) {
+    return in_array($user->email, ['admin@app.com']);
+});
 
 Route::get('/', function () {
     return view('welcome');
