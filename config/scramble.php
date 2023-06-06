@@ -41,7 +41,10 @@ return [
      * ],
      * ```
      */
-    'servers' => null,
+    'servers' => [
+        'Local' => 'api',
+        'Prod' => 'https://getmentor-original.onrender.com/api',
+    ],
 
     'middleware' => [
         'web',
