@@ -15,6 +15,6 @@ class ExperienceController extends Controller
         $response = array_map(function ($experience, $key) {
             return ['id' => $key, 'name' => $experience];
         }, $experiences, $keys);
-        return response()->json(["data" => $response]);
+        return response()->json(["data" => ['experiences' => $response]]);
     }
 }
