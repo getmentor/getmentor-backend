@@ -1,6 +1,6 @@
 # GetMentor Backend on Laravel:
 
-API on Laravel 
+API on Laravel
 
 ### Badges statuses:
 [![Maintainability](https://api.codeclimate.com/v1/badges/7b3b5c895ee0cf71aaf7/maintainability)](https://codeclimate.com/github/AslanAV/getmentor-backend/maintainability)
@@ -8,6 +8,8 @@ API on Laravel
 [![Tests & Lint & Deploy](https://github.com/getmentor/getmentor-backend/actions/workflows/phpci.yml/badge.svg?branch=main "Badge")](https://github.com/getmentor/getmentor-backend/actions/workflows/phpci.yml)
 
 DEMO: https://getmentor-original.onrender.com/
+
+API DOC: https://getmentor-original.onrender.com/docs/api#/
 
 ## Requirements:
 
