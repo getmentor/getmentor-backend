@@ -9,7 +9,7 @@ class MenteeExperience extends Model
 {
     use HasFactory;
 
-    public const MENTEEEXPERIENCE = [
+    public const MENTEE_EXPERIENCE = [
         0 => 'Junior',
         1 => 'Middle',
         2 => 'Senior',
@@ -20,15 +20,15 @@ class MenteeExperience extends Model
 
     public static function getMenteeExperienceID($menteeExperience): int
     {
-        return array_search($menteeExperience, self::MENTEEEXPERIENCE, true);
+        return array_search($menteeExperience, self::MENTEE_EXPERIENCE, true);
     }
     public static function getMenteeExperienceValue($id): string
     {
-        return self::MENTEEEXPERIENCE[$id];
+        return self::MENTEE_EXPERIENCE[$id];
     }
 
     public static function getAll()
     {
-        return self::MENTEEEXPERIENCE;
+        return self::MENTEE_EXPERIENCE;
     }
 }
