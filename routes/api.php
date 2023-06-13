@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\ExperienceController;
+use App\Http\Controllers\Api\MenteeExperienceController;
 use App\Http\Controllers\Api\MentorController;
 use App\Http\Controllers\Api\PriceController;
 use App\Http\Controllers\Api\SpecializationController;
@@ -30,3 +31,4 @@ Route::get('/specializations/{id}', [SpecializationController::class, 'show'])->
 
 Route::get('/experiences', [ExperienceController::class, 'index'])->name('experiences.index');
 Route::get('/prices', [PriceController::class, 'index'])->name('prices.index');
+Route::get('/menteeExperiences', [MenteeExperienceController::class, 'index'])->name('menteeExperiences.index');
