@@ -2,7 +2,10 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Experience;
+use App\Models\Price;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreMentorRequest extends FormRequest
 {
@@ -13,20 +16,29 @@ class StoreMentorRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'slug' => 'string|required|unique:mentors,slug|max:255',
             'name' => 'string|required|max:255',
             'email' => 'string|email|required|max:255',
-            'telegram_username' => 'string|required|max:255',
-            'photo_url' => 'string|url|required|max:255',
-            'job_title' => 'string|required|max:255',
+            'telegramUsername' => 'string|required|max:255',
+            'photoUrl' => 'string|url|required|max:255',
+            'job' => 'string|required|max:255',
             'workplace' => 'string|required|max:255',
             'about' => 'string|required',
             'description' => 'string|required',
             'competencies' => 'string|required|max:255',
-            'price' => 'string|required|max:255',
-            'experience' => 'string|required|max:255',
-            'link_to_calendar' => 'string|url|required|max:255',
-            'privacy_policy_agreement' => 'boolean|required',
+            'linkToCalendar' => 'string|url|required|max:255',
+            'specializations' => 'array|exists:specializations,name',
+            'price' => [
+                'string',
+                'required',
+                'max:255',
+                Rule::in(Price::getAll()),
+            ],
+            'experience' => [
+                'string',
+                'required',
+                'max:255',
+                Rule::in(Experience::getAll()),
+            ],
         ];
     }
 }
