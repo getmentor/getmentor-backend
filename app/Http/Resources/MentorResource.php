@@ -25,8 +25,8 @@ class MentorResource extends JsonResource
             'slug' => $this->slug,
             'name' => $this->name,
             'email' => $this->email,
-            'telegram_username' => $this->telegram_username,
-            'photo_url' => $this->photo_url,
+            'telegramUsername' => $this->telegram_username,
+            'photoUrl' => $this->photo_url,
             'job' => $this->job,
             'workplace' => $this-> workplace,
             'about' => $this->about,
@@ -35,7 +35,7 @@ class MentorResource extends JsonResource
             'price' => Price::getPriceValue($this->price),
             'experience' => Experience::getExperienceAttribute($this->experience),
             'menteeCount' => $this->menteeCount,
-            'link_to_calendar' => $this->link_to_calendar,
+            'linkToCalendar' => $this->link_to_calendar,
             'specializations' => $prepareSpecializations,
         ];
     }
