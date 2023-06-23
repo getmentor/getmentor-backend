@@ -34,7 +34,7 @@ class MentorResource extends JsonResource
             'competencies' => $this->competencies,
             'price' => Price::getPriceValue($this->price),
             'experience' => Experience::getExperienceAttribute($this->experience),
-            'menteeCount' => $this->menteeCount,
+            'menteeCount' => $this->mentee_count,
             'linkToCalendar' => $this->link_to_calendar,
             'specializations' => $prepareSpecializations,
         ];
