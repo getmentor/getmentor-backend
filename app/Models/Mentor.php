@@ -24,7 +24,7 @@ class Mentor extends Model
         'competencies',
         'price',
         'experience',
-        'menteeCount',
+        'mentee_count',
         'link_to_calendar',
     ];
 
@@ -35,6 +35,6 @@ class Mentor extends Model
 
     public function specializations(): BelongsToMany
     {
-        return $this->BelongsToMany(Specialization::class);
+        return $this->belongsToMany(Specialization::class);
     }
 }

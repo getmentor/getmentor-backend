@@ -39,7 +39,7 @@ class MentorFactory extends Factory
             'competencies' => $this->faker->text(50),
             'price' => $this->faker->numberBetween(1, 6),
             'experience' => $this->faker->numberBetween(1, 3),
-            'menteeCount' => $this->faker->numberBetween(1, 100),
+            'mentee_count' => $this->faker->numberBetween(1, 100),
             'link_to_calendar' => $this->faker->url(),
         ];
     }

@@ -25,6 +25,7 @@ Route::get('/test', function (Request $request) {
 
 Route::get('/mentors', [MentorController::class, 'index'])->name('mentors.index');
 Route::get('/mentors/{id}', [MentorController::class, 'show'])->name('mentors.show');
+Route::post('/mentors', [MentorController::class, 'store'])->name('mentors.store');
 
 Route::get('/specializations', [SpecializationController::class, 'index'])->name('specializations.index');
 Route::get('/specializations/{id}', [SpecializationController::class, 'show'])->name('specializations.index');
