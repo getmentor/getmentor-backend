@@ -25,7 +25,7 @@ class StoreMentorRequest extends FormRequest
             'about' => 'string|required',
             'description' => 'string|required',
             'competencies' => 'string|required|max:255',
-            'linkToCalendar' => 'string|url|required|max:255',
+            'linkToCalendar' => 'string|url|max:255',
             'specializations' => 'array|exists:specializations,name',
             'price' => [
                 'string',
